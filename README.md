@@ -1,6 +1,6 @@
 # Stormpath ASP.NET TCK
 
-This repository contains integration tests that are shared between [Stormpath.AspNet](https://github.com/stormpath/stormpath-aspnet) and [Stormpath.AspNeCore](https://github.com/stormpath/stormpath-aspnetcore). These tests are used to validate new versions of the ASP.NET middleware packages.
+This repository contains integration tests that are shared between [Stormpath.AspNet](https://github.com/stormpath/stormpath-aspnet) and [Stormpath.AspNetCore](https://github.com/stormpath/stormpath-aspnetcore). These tests are used to validate new versions of the ASP.NET middleware packages.
 
 * If you're looking for the Stormpath .NET SDK, head over to the [sdk-dotnet](https://github.com/stormpath/stormpath-aspnet) repository.
 * If you're looking for the Stormpath ASP.NET integration, head over to the [stormpath-aspnet](https://github.com/stormpath/stormpath-aspnet) repository.
