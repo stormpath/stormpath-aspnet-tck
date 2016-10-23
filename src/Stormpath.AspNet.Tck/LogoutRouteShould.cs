@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -123,6 +124,50 @@ namespace Stormpath.AspNet.Tck
                 setCookieHeaders.Should().Contain("access_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT; HttpOnly");
                 setCookieHeaders.Should().Contain("refresh_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT; HttpOnly");
             }
+        }
+
+        [Fact]
+        public async Task SucceedForAnonymousJsonRequest()
+        {
+            // Arrange
+            var client = new TestHttpClient(_fixture);
+
+            // Create a logout request
+            var logoutRequest = new HttpRequestMessage(HttpMethod.Post, "/logout");
+            logoutRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            logoutRequest.Content = new FormUrlEncodedContent(new KeyValuePair<string, string>[0]);
+
+            // Act
+            var logoutResponse = await client.SendAsync(logoutRequest);
+            logoutResponse.EnsureSuccessStatusCode();
+
+            // Assert
+            var setCookieHeaders = logoutResponse.Headers.GetValues("Set-Cookie").ToArray();
+            setCookieHeaders.Length.Should().Be(2);
+            setCookieHeaders.Should().Contain("access_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT; HttpOnly");
+            setCookieHeaders.Should().Contain("refresh_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT; HttpOnly");
+        }
+
+        [Fact]
+        public async Task SucceedForAnonymousHtmlRequest()
+        {
+            // Arrange
+            var client = new TestHttpClient(_fixture);
+
+            // Create a logout request
+            var logoutRequest = new HttpRequestMessage(HttpMethod.Post, "/logout");
+            logoutRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("text/html"));
+            logoutRequest.Content = new FormUrlEncodedContent(new KeyValuePair<string, string>[0]);
+
+            // Act
+            var logoutResponse = await client.SendAsync(logoutRequest);
+            logoutResponse.StatusCode.Should().Be(HttpStatusCode.Found);
+
+            // Assert
+            var setCookieHeaders = logoutResponse.Headers.GetValues("Set-Cookie").ToArray();
+            setCookieHeaders.Length.Should().Be(2);
+            setCookieHeaders.Should().Contain("access_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT; HttpOnly");
+            setCookieHeaders.Should().Contain("refresh_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT; HttpOnly");
         }
     }
 }
