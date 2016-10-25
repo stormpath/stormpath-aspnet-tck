@@ -34,14 +34,19 @@ namespace Stormpath.AspNet.Tck
 
         public async Task<string> GetAccessToken(IAccount account, string password)
         {
+            var grantResponse = await GetGrantResult(account, password);
+
+            return grantResponse.AccessTokenString;
+        }
+
+        public Task<IOauthGrantAuthenticationResult> GetGrantResult(IAccount account, string password)
+        {
             var grantRequest = OauthRequests.NewPasswordGrantRequest()
                 .SetLogin(account.Email)
                 .SetPassword(password)
                 .Build();
-            var grantResponse = await TestApplication.NewPasswordGrantAuthenticator()
+            return TestApplication.NewPasswordGrantAuthenticator()
                 .AuthenticateAsync(grantRequest);
-
-            return grantResponse.AccessTokenString;
         }
 
         public Uri BaseUri = new Uri("http://localhost:8080");
