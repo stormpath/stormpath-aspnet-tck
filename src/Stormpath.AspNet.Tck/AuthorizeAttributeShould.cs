@@ -56,7 +56,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowBrowserRequestAuthorizedWithHeader),
                     nameof(AuthorizeAttributeShould),
@@ -86,7 +86,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowBrowserRequestAuthorizedWithCookie),
                     nameof(AuthorizeAttributeShould),
@@ -116,7 +116,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowJsonRequestAuthorizedWithHeader),
                     nameof(AuthorizeAttributeShould),
@@ -146,7 +146,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowJsonRequestAuthorizedWithCookie),
                     nameof(AuthorizeAttributeShould),
@@ -176,7 +176,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(HandleConcurrentRequests),
                     nameof(AuthorizeAttributeShould),

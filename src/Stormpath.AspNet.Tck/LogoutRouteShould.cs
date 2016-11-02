@@ -31,7 +31,7 @@ namespace Stormpath.AspNet.Tck
             {
                 // Create a user
                 var application = await _fixture.Client.GetApplicationAsync(_fixture.TestApplication.Href);
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await application.CreateAccountAsync(
                     nameof(DeleteCookiesProperly),
                     nameof(LogoutRouteShould),
@@ -86,7 +86,7 @@ namespace Stormpath.AspNet.Tck
             {
                 // Create a user
                 var application = await _fixture.Client.GetApplicationAsync(_fixture.TestApplication.Href);
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await application.CreateAccountAsync(
                     nameof(LogoutWithExpiredAccessToken),
                     nameof(LogoutRouteShould),

@@ -25,7 +25,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(RedirectBrowserRequestWithoutCustomData),
                     nameof(CustomDataRequirementShould),
@@ -55,7 +55,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(ReturnUnauthorizedForJsonRequestWithoutCustomData),
                     nameof(CustomDataRequirementShould),
@@ -85,7 +85,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowBrowserRequestWithMatchingCustomData),
                     nameof(CustomDataRequirementShould),
@@ -118,7 +118,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowJsonRequestWithMatchingCustomData),
                     nameof(CustomDataRequirementShould),
@@ -151,7 +151,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account1 = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(HandleConcurrentRequests),
                     nameof(CustomDataRequirementShould),
@@ -165,7 +165,7 @@ namespace Stormpath.AspNet.Tck
                 var account2 = await _fixture.TestApplication.CreateAccountAsync(
                     $"{nameof(HandleConcurrentRequests)} #2",
                     nameof(CustomDataRequirementShould),
-                    $"its-{_fixture.TestKey}-2@example.com",
+                    $"its-{_fixture.TestKey}-2@testmail.stormpath.com",
                     "Changeme123!!");
                 cleanup.MarkForDeletion(account2);
 

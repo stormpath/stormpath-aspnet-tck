@@ -25,7 +25,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(RedirectBearerBrowserRequestWithoutGroup),
                     nameof(GroupsRequirementShould),
@@ -55,7 +55,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(RedirectBearerBrowserRequestWithoutGroup),
                     nameof(GroupsRequirementShould),
@@ -85,7 +85,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(RedirectCookieBrowserRequestUsingRefreshToken),
                     nameof(GroupsRequirementShould),
@@ -117,7 +117,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(ReturnUnauthorizedForBearerJsonRequestWithoutGroup),
                     nameof(GroupsRequirementShould),
@@ -147,7 +147,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(ReturnUnauthorizedForCookieJsonRequestWithoutGroup),
                     nameof(GroupsRequirementShould),
@@ -180,7 +180,7 @@ namespace Stormpath.AspNet.Tck
                 var group = await _fixture.TestDirectory.CreateGroupAsync("adminIT", "Stormpath.AspNetCore test group");
                 cleanup.MarkForDeletion(group);
 
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowBearerBrowserRequestWithCorrectGroup),
                     nameof(GroupsRequirementShould),
@@ -215,7 +215,7 @@ namespace Stormpath.AspNet.Tck
                 var group = await _fixture.TestDirectory.CreateGroupAsync("adminIT", "Stormpath.AspNetCore test group");
                 cleanup.MarkForDeletion(group);
 
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowCookieBrowserRequestWithCorrectGroup),
                     nameof(GroupsRequirementShould),
@@ -254,7 +254,7 @@ namespace Stormpath.AspNet.Tck
                 var group = await _fixture.TestDirectory.CreateGroupAsync("adminIT", "Stormpath.AspNetCore test group");
                 cleanup.MarkForDeletion(group);
 
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowCookieBrowserRequestUsingRefreshToken),
                     nameof(GroupsRequirementShould),
@@ -290,7 +290,7 @@ namespace Stormpath.AspNet.Tck
                 var group = await _fixture.TestDirectory.CreateGroupAsync("adminIT", "Stormpath.AspNetCore test group");
                 cleanup.MarkForDeletion(group);
 
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowBearerJsonRequestWithCorrectGroup),
                     nameof(GroupsRequirementShould),
@@ -325,7 +325,7 @@ namespace Stormpath.AspNet.Tck
                 var group = await _fixture.TestDirectory.CreateGroupAsync("adminIT", "Stormpath.AspNetCore test group");
                 cleanup.MarkForDeletion(group);
 
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(AllowCookieJsonRequestWithCorrectGroup),
                     nameof(GroupsRequirementShould),
@@ -360,7 +360,7 @@ namespace Stormpath.AspNet.Tck
                 var group = await _fixture.TestDirectory.CreateGroupAsync("adminIT", "Stormpath.AspNetCore test group");
                 cleanup.MarkForDeletion(group);
 
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(HandleConcurrentRequests),
                     nameof(GroupsRequirementShould),
@@ -372,7 +372,7 @@ namespace Stormpath.AspNet.Tck
                 var account2 = await _fixture.TestApplication.CreateAccountAsync(
                     $"{nameof(HandleConcurrentRequests)} #2",
                     nameof(GroupsRequirementShould),
-                    $"its-{_fixture.TestKey}-2@example.com",
+                    $"its-{_fixture.TestKey}-2@testmail.stormpath.com",
                     "Changeme123!!");
                 cleanup.MarkForDeletion(account2);
 

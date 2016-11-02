@@ -43,7 +43,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(GetUserAuthenticatedByHeader),
                     nameof(GetUserShould),
@@ -75,7 +75,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(GetUserAuthenticatedByHeader),
                     nameof(GetUserShould),
@@ -107,7 +107,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(HandleConcurrentMixedAuthenticationRequests),
                     nameof(GetUserShould),
@@ -146,7 +146,7 @@ namespace Stormpath.AspNet.Tck
 
             using (var cleanup = new AutoCleanup(_fixture.Client))
             {
-                var email = $"its-{_fixture.TestKey}@example.com";
+                var email = $"its-{_fixture.TestKey}@testmail.stormpath.com";
                 var account1 = await _fixture.TestApplication.CreateAccountAsync(
                     nameof(HandleConcurrentAuthenticatedRequests),
                     nameof(GetUserShould),
@@ -157,7 +157,7 @@ namespace Stormpath.AspNet.Tck
                 var account2 = await _fixture.TestApplication.CreateAccountAsync(
                     $"{nameof(HandleConcurrentAuthenticatedRequests)} #2",
                     nameof(GetUserShould),
-                    $"its-{_fixture.TestKey}-2@example.com",
+                    $"its-{_fixture.TestKey}-2@testmail.stormpath.com",
                     "Changeme123!!");
                 cleanup.MarkForDeletion(account2);
 
